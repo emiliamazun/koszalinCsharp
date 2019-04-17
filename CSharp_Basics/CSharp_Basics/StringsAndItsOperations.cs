@@ -10,6 +10,7 @@ namespace CSharp_Basics
     [TestFixture]
     public class StringsAndItsOperations
     {
+        private string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
         //        /// <summary>
         //        /// String is diffrent then previues types we talk about
         //        /// values of string we are passing in quotation marks
@@ -22,8 +23,20 @@ namespace CSharp_Basics
             string Example = "This is example string";
 
             string myName = " Emilia";
-
-            string output = Example + myName;
+        [Test]
+        public void String_Initialization()
+        {
+            int x = 6;
+            double z = 5;
+            string errorMessage = "There was error with operation values \n" + x + " and " + z;
+            string errorMessageFormat = string.Format("There was error with operation values \n{0} and {1}", x, z);
+            string errorMessageFormatDollar = $"There was error with operation values \n{x} and {z}               ";
+            Console.WriteLine(errorMessage);
+            Console.WriteLine(errorMessageFormat);
+            Console.WriteLine(errorMessageFormatDollar);
+            //Assert.That(itsEmpty, Is.Not.Null);
+            Assert.That(z, Is.EqualTo(6));
+        }
 
             Assert.That(output, Is.EqualTo("This is example string Emilia"));
 
