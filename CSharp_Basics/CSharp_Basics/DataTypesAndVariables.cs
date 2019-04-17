@@ -28,24 +28,27 @@ namespace CSharp_Basics
         //        /// singleDigit, number, lessThenZero
         //        /// make they values:  6   14  -100
         //        /// </summary>
-        //        [Test]
-        //        public void Creating_Integeres()
-        //        {
-        //            // int - describes type
-        //            // example - is name of variable, english names are preferred
-        //            // =  equal sign is used for assigning values.
-        //            // 0 - the value
-        //            //  ; - IMPORTANT ';' sign means and of the command usually it is on end of the line - remember about it
-        //            int example = 0;
-        //
-        //            Assert.AreEqual(example, 0, "Example Has wrong value did you changed it?");
-        //            Assert.AreEqual(singleDigit, 6, "Example Has wrong value did you changed it?");
-        //            Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
-        //            Assert.AreEqual(number, 14, "Example Has wrong value did you changed it?");
-        //            Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
-        //            Assert.AreEqual(lessThenZero, -100, "Example Has wrong value did you changed it?");
-        //            Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
-        //        }
+        [Test]
+        public void Creating_Integeres()
+        {
+            // int - describes type
+            // example - is name of variable, english names are preferred
+            // =  equal sign is used for assigning values.
+            // 0 - the value
+            //  ; - IMPORTANT ';' sign means and of the command usually it is on end of the line - remember about it
+            int example = 0;
+            int singleDigit = 6;
+            int number = 14;
+            int lessThenZero = -100;
+
+            Assert.AreEqual(example, 0, "Example Has wrong value did you changed it?");
+            Assert.AreEqual(singleDigit, 6, "Example Has wrong value did you changed it?");
+            Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
+            Assert.AreEqual(number, 14, "Example Has wrong value did you changed it?");
+            Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
+            Assert.AreEqual(lessThenZero, -100, "Example Has wrong value did you changed it?");
+            Assert.That(singleDigit, Is.TypeOf<int>(), "You sure it is int?");
+        }
 
         //        /// <summary>
         //        /// Basic operations at integers are
@@ -53,27 +56,30 @@ namespace CSharp_Basics
         //        /// make integer variables: subtract, multiply and divide perform operations.
         //        /// discuss why divide is not working
         //        /// </summary>
-        //        [Test]
-        //        public void Operation_On_Integers()
-        //        {
-        //            int X = 4;
-        //            int Y = 5;
-        //
-        //            /*
-        //             * There are few other ways you can do this
-        //             * int add = 0;
-        //             * add = x+y;
-        //             */
-        //            int add = X + Y;
-        //
-        //            Assert.AreEqual(9, add, "Example Has wrong value did you changed it?");
-        //            Assert.AreEqual(-1, subtract, "Wrong value maybe other way around?");
-        //            Assert.That(subtract, Is.TypeOf<int>(), "You sure it is int?");
-        //            Assert.AreEqual(20, multiply, "Example Has wrong value did you changed it?");
-        //            Assert.That(multiply, Is.TypeOf<int>(), "You sure it is int?");
-        //            Assert.AreEqual(1.25, divide, "Example Has wrong value did you changed it?");
-        //            Assert.That(divide, Is.TypeOf<int>(), "You sure it is int?");
-        //        }
+        [Test]
+        public void Operation_On_Integers()
+        {
+            int X = 4;
+            int Y = 5;
+
+            /*
+             * There are few other ways you can do this
+             * int add = 0;
+             * add = x+y;
+             */
+            int add = X + Y;
+            int subtract = X - Y;
+            int multiply = X * Y;
+            double divide = (double)Y / X;
+
+            Assert.AreEqual(9, add, "Example Has wrong value did you changed it?");
+            Assert.AreEqual(-1, subtract, "Wrong value maybe other way around?");
+            Assert.That(subtract, Is.TypeOf<int>(), "You sure it is int?");
+            Assert.AreEqual(20, multiply, "Example Has wrong value did you changed it?");
+            Assert.That(multiply, Is.TypeOf<int>(), "You sure it is int?");
+            Assert.AreEqual(1.25, divide, "Example Has wrong value did you changed it?");
+            Assert.That(divide, Is.TypeOf<double>(), "You sure it is int?");
+        }
 
         //        /// <summary>
         //        /// There are more way of changing value if you want to only increase x you can
@@ -86,16 +92,16 @@ namespace CSharp_Basics
         //        /// Take moment to play with it.
         //        /// you can do same with other math operations.
         //        /// </summary>
-        //        [Test]
-        //        public void Int_Increments()
-        //        {
-        //            int example = 5;
-        //            example += 10;
-        //            //example is 15
-        //            example++;
-        //            //example is 16 know;
-        //            Assert.AreEqual(example, 16);
-        //        }
+        [Test]
+        public void Int_Increments()
+        {
+            int example = 5;
+            example += 10;
+            //example is 15
+            example++;
+            //example is 16 now;
+            Assert.AreEqual(example, 16);
+        }
 
         //        /// <summary>
         //        /// bool is the most straightforward and most useful it can only accept true and false.
@@ -104,12 +110,15 @@ namespace CSharp_Basics
         //        /// Assign to them true and false.
         //        /// Try to assign number 6 to them.
         //        /// </summary>
-        //        public void Bool()
-        //        {
+        [Test]
+        public void Bool()
+        {
+            bool truth = true;
+            bool notTruth = false;
 
-        //            Assert.True(truth);
-        //            Assert.True(notTruth);
-        //        }
+            Assert.True(truth);
+            Assert.False(notTruth);
+        }
 
         //            /// <summary>
         //            /// There are many ways to store real numbers
@@ -118,14 +127,18 @@ namespace CSharp_Basics
         //            /// Float, Double are faster but not always accurate. Ask your teacher for more details.
         //            /// repeat operations add, subtract, divide, and multiply for double
         //            /// </summary>
-        //            public void float_double_decimal()
-        //            {
-        //                decimal exampleDecimal = new decimal(10.5);
-        //
-        //                double X = 140000000000000000000000000.001;
-        //                double Y = 0.0000000000000000000000000008;
-        //
-        //            }
+        [Test]
+        public void float_double_decimal()
+        {
+            decimal exampleDecimal = new decimal(10.5);
+
+            double X = 140000000000000000000000000.001;
+            double Y = 0.0000000000000000000000000008;
+
+            double result = X / Y;
+
+            Assert.That(exampleDecimal, Is.EqualTo(10.5));
+        }
 
         //        /// <summary>
         //        /// Extra exercise
@@ -133,10 +146,29 @@ namespace CSharp_Basics
         //        /// Display them - you can do it Console.WriteLine(yourVariable);
         //        /// Try to explain what happened.
         //        /// </summary>
-        //        public void Default_Values()
-        //        {
-        //           
-        //        }
+        [Test]
+        public void Default_Values()
+        {
+            int myInteger =100;
+            float myFloat=1.1111111f;
+            double myDouble=1.111;
+            bool myBool=true;
+            string myString="lol";
+            decimal myDecimal=11.02M;
+            char myChar= "dog"[0];
+
+            if (myChar == 'd')
+            {
+                Console.WriteLine(myChar[0] + " Ima");
+            }
+            Console.WriteLine("Is float a float? " + myFloat.GetType());
+
+            Console.WriteLine("Is integer an int? " + myInteger.GetType());
+
+            Console.WriteLine("decimal" + myDecimal);
+
+
+        }
 
         //Additonal read:
         // There are more types we didn't cover but it is worth knowing about
