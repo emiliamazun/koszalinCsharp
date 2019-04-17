@@ -151,15 +151,15 @@ namespace CSharp_Basics
         {
             int myInteger =100;
             float myFloat=1.1111111f;
-            double myDouble=1.111;
-            bool myBool=true;
-            string myString="lol";
+            //double myDouble=1.111;
+            //bool myBool=true;
+            //string myString="lol";
             decimal myDecimal=11.02M;
             char myChar= "dog"[0];
 
             if (myChar == 'd')
             {
-                Console.WriteLine(myChar[0] + " Ima");
+                Console.WriteLine(myChar + " Ima");
             }
             Console.WriteLine("Is float a float? " + myFloat.GetType());
 
