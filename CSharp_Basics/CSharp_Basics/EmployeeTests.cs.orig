@@ -1,0 +1,173 @@
+<<<<<<< HEAD
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+=======
+﻿
+using System;
+>>>>>>> 24a0ee2572bcee74a0023e255f3d9ec6b8635f39
+using NUnit.Framework;
+
+namespace CSharp_Basics
+{
+    [TestFixture]
+<<<<<<< HEAD
+    public class EmployeeTests
+    {
+        [Test]
+        public void Employee_Creation_FieldProperlyFilled()
+        {
+            var employee = new Employee("Emilia", 661, "koszalin", "dogs");
+            var employee1 = new Employee("Aleksandra", 662, "wroclaw", "dogs");
+            var employee2 = new Employee("Anna", 663, "koszalin", "dogs");
+
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(employee.IdOfEmployee, Is.EqualTo(661));
+                Assert.That(employee.NameOfPerson, Is.EqualTo("Emilia"));
+                Assert.That(employee.Location2String, Is.EqualTo("koszalin"));
+
+
+                Assert.That(employee1.IdOfEmployee, Is.EqualTo(662));
+                Assert.That(employee1.NameOfPerson, Is.EqualTo("Aleksandra"));
+                Assert.That(employee1.Location2String, Is.EqualTo("wroclaw"));
+
+                Assert.That(employee2.IdOfEmployee, Is.EqualTo(663));
+                Assert.That(employee2.NameOfPerson, Is.EqualTo("Anna"));
+                Assert.That(employee2.Location2String, Is.EqualTo("koszalin"));
+            });
+        }
+        [Test]
+        public void EmployeeInIT_CreationUsingEnums_FieldProperlyFilled()
+        {
+            var employee3 = new EmployeeInIT("Paprykarz", 666, Locations.szczecin, "C#");
+
+            Assert.Multiple(() => {
+
+                Assert.That(employee3.IdOfEmployee, Is.EqualTo(666));
+                Assert.That(employee3.NameOfPerson, Is.EqualTo("Paprykarz"));
+                Assert.That(employee3.Location2String, Is.EqualTo("szczecin"));
+                Assert.That(employee3.ProgramingLanguage, Is.EqualTo("C#"));
+            });
+
+        }
+
+        [TestCase(Locations.krakow, false)]
+        [TestCase(Locations.szczecin, true)]
+        [TestCase(Locations.koszalin, true)]
+        public void CheckIsNorthOfWarschau(Locations loc, bool result)
+        {
+            var emplyee = new EmployeeInIT("em", 333, loc, "C#");
+
+            Assert.That(emplyee.IsNorthOfWarschau(), Is.EqualTo(result));
+
+        }
+
+        /// polnoc ma miec id pieciocyfrowe i zaczynac sie od 1-5
+        /// poludnie ma miec id pieciocyfrowe ale zaczynac sie 6-9
+        /// 
+
+        [TestCase(Locations.koszalin, 123)]
+        public void CheckIfBadgeHas5Digits(Locations loc, uint IdNumber)
+        {
+
+            Assert.Throws<ArgumentOutOfRangeException>(
+                () => new Employee("emma", IdNumber, loc, "dogs"));
+        }
+
+
+        //test for throwing an error
+        [Test]
+        public void TrhowError()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(
+                ()=> new EmployeeInIT("emma",333,"koszalin","C#"));
+        }
+
+=======
+    public class EmployeeTestsa
+    {
+        [Test]
+        public void aaa()
+        {
+            Console.WriteLine("wtf");
+        }
+        [Test]
+        public void Employee_Creation_FiledProperlyField()
+        {
+            var employee = new Employee("Emka", 666, "Koszalin");
+            var employee2 = new Employee("Lka", 669, "Koszalin");
+            var employee3 = new Employee("Ska", 668, "Koszalin");
+            var employee4 = new Employee("Xlka", 664, "Wroclaw");
+
+            Assert.That(employee.BadgeID, Is.EqualTo(666));
+            Assert.That(employee.LocationString, Is.EqualTo("Koszalin"));
+            Assert.That(employee.Name, Is.EqualTo("Emka"));
+
+            Assert.That(employee2.BadgeID, Is.EqualTo(669));
+            Assert.That(employee2.LocationString, Is.EqualTo("Koszalin"));
+            Assert.That(employee2.Name, Is.EqualTo("Lka"));
+
+            Assert.That(employee3.BadgeID, Is.EqualTo(668));
+            Assert.That(employee3.LocationString, Is.EqualTo("Koszalin"));
+            Assert.That(employee3.Name, Is.EqualTo("Ska"));
+
+            Assert.That(employee4.BadgeID, Is.EqualTo(664));
+            Assert.That(employee4.LocationString, Is.EqualTo("Wroc"));
+            Assert.That(employee4.Name, Is.EqualTo("Xlka"));
+        }
+
+        [Test]
+        public void EmployeeIT_CreationUsingEnum_FiledProperlyField()
+        {
+            var employee = new ItEmployee("Emka", 666, Locations.Koszalin, "C#");
+
+
+            Assert.That(employee.BadgeID, Is.EqualTo(666));
+            Assert.That(employee.LocationString, Is.EqualTo("Koszalin"));
+            Assert.That(employee.Name, Is.EqualTo("Emka"));
+
+        }
+
+        [TestCase(Locations.Szczecin, true)]
+        [TestCase(Locations.Koszalin, true)]
+        [TestCase(Locations.Wroclaw, false)]
+        [TestCase(Locations.Krakow, true)]
+        [TestCase(Locations.ZielonaGora, false)]
+        public void ItEmployee_IsNorthOfWarsow(Locations loc, bool result)
+        {
+            var employee = new ItEmployee("Emka", 666, loc, "C#");
+
+            Assert.That(employee.IsNorthOfWarsaw, Is.EqualTo(result));
+
+
+        }
+        //północ
+        /*id 
+        1-5 - 5 cyfr
+        południe
+        6-9 - 5 cyfr
+
+        throw new ArgumentOutOfRangeException();*/
+        [Test]
+        public void Employe_IdIsOutOfRange_ThrowsArgrumentOutOfRange()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(
+                () => new ItEmployee("Emka", 666, Locations.Koszalin, "C#")
+                );
+        }
+
+        [TestCase(Locations.Koszalin,11111)]
+        [TestCase(Locations.ZielonaGora,66666)]
+        public void Employe_IDisInWrongRange_ThrowsArgrumentOutOfRange(Locations loc, int badge)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(
+                () => new Employee("Emka", badge, loc)
+            );
+        }
+>>>>>>> 24a0ee2572bcee74a0023e255f3d9ec6b8635f39
+    }
+}

@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+=======
+﻿
+>>>>>>> 24a0ee2572bcee74a0023e255f3d9ec6b8635f39
+
+namespace CSharp_Basics
+{
+    public enum Locations
+    {
+<<<<<<< HEAD
+        koszalin, zielona, krakow, wroclaw, szczecin
+=======
+        Wroclaw,
+        Koszalin,
+        Szczecin,
+        ZielonaGora,
+        Krakow
+>>>>>>> 24a0ee2572bcee74a0023e255f3d9ec6b8635f39
+    }
+}
