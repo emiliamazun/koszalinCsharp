@@ -10,7 +10,38 @@ namespace CSharp_Basics
     [TestFixture]
     public class StringsAndItsOperations
     {
-        private string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
+        [Test]
+        public void TestForReplaceOfSignsInString()
+        {
+            string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
+
+
+            string correctString = Poem.Replace(",", "\n");
+            string correctString2 = correctString.Replace(".", "\n");
+            string correctString3 = correctString2.Replace(":", "\n");
+
+            Console.WriteLine(correctString3);
+
+        }
+        [Test]
+        public void TestForUsageOfSplitAndJoinInStrings()
+        {
+            string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
+
+            var split = Poem.Split(',');
+            Poem = string.Join(",\n", split);
+
+            split = Poem.Split('.');
+            Poem = string.Join(".\n", split);
+
+            split = Poem.Split(':');
+            Poem = string.Join(":\n", split);
+
+
+            Console.WriteLine(Poem);
+        }
+
+
         //        /// <summary>
         //        /// String is diffrent then previues types we talk about
         //        /// values of string we are passing in quotation marks
@@ -21,8 +52,12 @@ namespace CSharp_Basics
         public void Bascis_Of_Strings()
         {
             string Example = "This is example string";
-
             string myName = " Emilia";
+
+            string output = Example + myName;
+            Assert.That(output, Is.EqualTo("This is example string Emilia"));
+
+        }
         [Test]
         public void String_Initialization()
         {
@@ -35,12 +70,10 @@ namespace CSharp_Basics
             Console.WriteLine(errorMessageFormat);
             Console.WriteLine(errorMessageFormatDollar);
             //Assert.That(itsEmpty, Is.Not.Null);
-            Assert.That(z, Is.EqualTo(6));
+            Assert.That(x, Is.EqualTo(6));
         }
 
-            Assert.That(output, Is.EqualTo("This is example string Emilia"));
-
-        }
+        
 
         /// <summary>
         ///  string is  first Reference Type you see (We will talk more about them later)
@@ -49,7 +82,7 @@ namespace CSharp_Basics
         ///  create new strings itsEmpty and make it empty
         /// </summary>
         [Test]
-        public void String_Initialization()
+        public void String_InitializationMine()
         {
             int x = 3;
             double y = 3.01;
