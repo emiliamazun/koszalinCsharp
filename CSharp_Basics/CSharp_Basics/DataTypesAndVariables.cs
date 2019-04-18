@@ -22,12 +22,12 @@ namespace CSharp_Basics
 
         // usefull link: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/value-types
 
-        //        /// <summary>
-        //        /// Integers are symbolized as int
-        //        /// create 3 integers with following names
-        //        /// singleDigit, number, lessThenZero
-        //        /// make they values:  6   14  -100
-        //        /// </summary>
+        /// <summary>
+        /// Integers are symbolized as int
+        /// create 3 integers with following names
+        /// singleDigit, number, lessThenZero
+        /// make they values:  6   14  -100
+        /// </summary>
         [Test]
         public void Creating_Integeres()
         {
@@ -37,9 +37,9 @@ namespace CSharp_Basics
             // 0 - the value
             //  ; - IMPORTANT ';' sign means and of the command usually it is on end of the line - remember about it
             int example = 0;
-            int singleDigit = 6;
-            int number = 14;
-            int lessThenZero = -100;
+            int singleDigit=6;
+            int lessThenZero=-100;
+            int number=14;
 
             Assert.AreEqual(example, 0, "Example Has wrong value did you changed it?");
             Assert.AreEqual(singleDigit, 6, "Example Has wrong value did you changed it?");
@@ -70,7 +70,7 @@ namespace CSharp_Basics
             int add = X + Y;
             int subtract = X - Y;
             int multiply = X * Y;
-            double divide = (double)Y / X;
+            double divide = (double) Y / X;
 
             Assert.AreEqual(9, add, "Example Has wrong value did you changed it?");
             Assert.AreEqual(-1, subtract, "Wrong value maybe other way around?");

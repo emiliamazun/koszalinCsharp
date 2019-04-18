@@ -145,5 +145,36 @@ namespace CSharp_Basics
         }
 
 
+        ////        [Test]
+        //public void Substrings()
+        //{
+        //    var theString =
+        //        "The interesting thing about London is that there are always stylish surprises around every corner.";
+
+        //    Assert.AreEqual(result, "thing");
+        //}
+
+
+        [Test]
+        public void Replace()
+        {
+            Poem= Poem.Replace(",", ",\n");
+            Poem = Poem.Replace(".", ".\n");
+            Poem = Poem.Replace(":", ":\n");
+
+            Console.WriteLine(Poem);
+        }
+
+        [Test]
+        public void Replace2()
+        {
+            var split = Poem.Split(',');
+            Poem = string.Join(",\n", split);
+            split = Poem.Split('.');
+            Poem = string.Join(".\n", split);
+            split = Poem.Split(':');
+            Poem = string.Join(":\n", split);
+            Console.WriteLine(Poem);
+        }
     }
 }
